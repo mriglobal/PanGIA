@@ -1,0 +1,38 @@
+11/13/2020 - Dave Yarmosh
+The scripts in this folder are required to generate PanGIA uniqueness scores after a PanGIA database has been built.
+
+If a database has been built, you should have *gottcha_db.{strain/species/genus/etc.}.list files. 
+These are needed as input to uniqueness.sh, your master script that calls the others.
+
+uniqueness.sh is formatted as though it will use a job scheduler. This does not need to remain true, as nothing objectively requires a scheduler.
+This is equally true for uge_gottcha_db.sh - *though it is worth noting here that there are hard coded variables for RAM and thread count in this script.*
+
+Uniqueness calculations are lengthy, but parallelizable (and parallelized).
+The original PanGIA DB (with additions for various South American viruses and assorted plasmodia) took about 3 days to complete for ~17GB of input fasta and I think I did it with 32 threads.
+Good luck.
+
+gottcha should not be required.
+openmpi and gcc are required.
+GNU parallel is required
+python is required
+PanGIA's taxonomy.py is required.
+btl self,sm,tcp are all required. These are, or were, part of openmpi at some point.
+If any of these are missing, google is your friend. GNU parallel can be conda installed. openmpi and its assorted packages may be more complicated.
+You can probably escape the need for openmpi by rewriting parts of uge_gottcha_db.sh
+
+#Possible error related to btl# 
+As of version 3.0.0, the "sm" BTL is no longer available in Open MPI.
+Efficient, high-speed same-node shared memory communication support in
+Open MPI is available in the "vader" BTL.  To use the vader BTL, you
+can re-run your job with:
+    mpirun --mca btl vader,self,... your_mpi_application
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+A requested component was not found, or was unable to be opened.  This
+means that this component is either not installed or is unable to be
+used on your system (e.g., sometimes this means that shared libraries
+that the component requires are unable to be found/loaded).  Note that
+Open MPI stopped checking at the first component that it did not find.
+Host:      Tiamat-3
+Framework: btl
+Component: sm
