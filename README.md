@@ -3,7 +3,7 @@
 The bioinformatics pipeline leverages Minimap2 to identify ‘where’ reads belong to provide taxonomy identification specific to strain-level. Other than community profiling, PanGIA uses two approaches to obtain a metric of confidence, one that relies on uniqueness of sequences and the other one that relies on comparing test samples with control samples (organism-basis).
 
 -------------------------------------------------------------------
-## REQUIREMENT
+#### REQUIREMENT
 
 Third-party softwares:
 
@@ -16,16 +16,16 @@ Third-party softwares:
 * Pandas
 
 -------------------------------------------------------------------
-## QUICK INSTALLATION
+#### QUICK INSTALLATION
 
 1. Make sure you have requirements and dependencies installed properly. [Conda](https://conda.io/miniconda.html) is quick way.
-### Conda Install
+# Conda Install
 ```
 conda create --name pangia python=3.8
 conda activate pangia
 conda install -c bioconda -c conda-forge pybedtools minimap2 samtools pandas gawk parallel
 ```
-### PIP Install (with python3)
+# PIP Install (with python3)
 ```
 apt-get update
 apt-get -y install gawk parallel samtools minimap2
