@@ -19,13 +19,13 @@ Third-party softwares:
 #### QUICK INSTALLATION
 
 1. Make sure you have requirements and dependencies installed properly. [Conda](https://conda.io/miniconda.html) is quick way.
-# Conda Install
+* Conda Install
 ```
 conda create --name pangia python=3.8
 conda activate pangia
 conda install -c bioconda -c conda-forge pybedtools minimap2 samtools pandas gawk parallel
 ```
-# PIP Install (with python3)
+* PIP Install (with python3)
 ```
 apt-get update
 apt-get -y install gawk parallel samtools minimap2
