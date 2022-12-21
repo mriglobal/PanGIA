@@ -15,11 +15,6 @@ Third-party softwares:
 * Pybedtools
 * Pandas
 
-------------------------------------------------------------------
-## DOWNLOAD DATBASE
-
-
-
 -------------------------------------------------------------------
 ## QUICK INSTALLATION
 
@@ -38,11 +33,13 @@ pip install pybedtools pandas
 ```
 2. Retrieving PanGIA:
 ```
-git clone https://github.com/biofxmriglobal/pangia.git && cd pangia
+git clone https://github.com/mriglobal/pangia.git && cd pangia
 ```
 3. Download databases:
 ```
-
+mkdir database && cd database
+wget http://pangia1.0.s3.amazonaws.com/pangia_database.tar.gz
+tar -xvf pangia_database.tar.gz
 ```
 4. Enjoy.
 
@@ -54,7 +51,7 @@ Run a testing paired-end dataset against all PanGIA databases with 24 threads, u
 ```
 ./pangia.py \
   -i test.1.fastq test.2.fastq\
-  -db database/NCBI_genomes_refseq89_*.fa  \
+  -db database/*.fa  \
   -t 24
 ```
 
