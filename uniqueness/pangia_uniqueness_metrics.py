@@ -34,6 +34,11 @@ if __name__ == '__main__':
 
                                 lng = t.taxid2lineageDICT(tid, 1, 1)
 
+                                # When "strain" is not included in the lineage, save the tid from the sequence to strain
+                                if not "strain" in lng:
+                                        lng['strain']['taxid'] = tid
+                                        lng['strain']['name'] = line.split('|')[4].split(']')[0]
+
                                 for rank in plevels:
                                         #res_tree[pid][tid] = 1
                                         tid = lng[rank]['taxid']
